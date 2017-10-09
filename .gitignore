@@ -26,3 +26,6 @@ npm-debug.log*
 
 #prevent .css files from getting into repo
 src/**/*.css
+
+#Materials used in building out project
+Materials
