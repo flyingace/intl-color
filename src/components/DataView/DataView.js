@@ -12,10 +12,8 @@ class DataFields extends React.Component {
 
     state = {};
 
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
+    componentWillMount() {
+        this.props.fetchData();
     }
 
     render() {

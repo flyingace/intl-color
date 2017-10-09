@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import FilterView from "./components/FilterView";
-import DataView from "./components/DataView";
+
+import FilterView from "./components/FilterView/FilterView";
+import DataContainer from "./containers/DataContainer";
 
 class App extends Component {
+
     render() {
         return (
             <div className="App">
@@ -17,7 +19,7 @@ class App extends Component {
                     <li className="column-five">Submitted By</li>
                     <li className="column-six">Status</li>
                 </ul>
-                <DataView/>
+                <DataContainer/>
             </div>
         );
     }
