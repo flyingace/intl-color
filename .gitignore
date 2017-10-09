@@ -23,3 +23,6 @@ npm-debug.log*
 
 ## File-based project format:
 *.iws
+
+#prevent .css files from getting into repo
+src/**/*.css

@@ -1,0 +1,47 @@
+@import './styles/_variables';
+
+.App {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+
+  [class^="column-"] {
+    float: left;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    clear: both;
+  }
+
+  li {
+
+  }
+
+  .column-one {
+    width: $column-one-width;
+  }
+
+  .column-two {
+    width: $column-two-width;
+  }
+
+  .column-three {
+    width: $column-three-width;
+  }
+
+  .column-four {
+    width: $column-four-width;
+  }
+
+  .column-five {
+    width: $column-five-width;
+  }
+
+  .column-six {
+    width: $column-six-width;
+  }
+
+}
