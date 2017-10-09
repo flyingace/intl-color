@@ -20,9 +20,9 @@ export function failureData() {
 
 /**
  * This simulates an actual request
- * Once the data is 'received' a property 'isRendered' is added to every object
- * in the data array before it is passed to another function which will integrate
- * it into the state in a reducer
+ * Once the data is 'received' the properties '_id' and 'isRendered' are added
+ * to every object in the data array before it is passed to another function
+ * which will pass it to a reducer and integrate it into the state
  * @returns {function(*)}
  */
 export function fetchData() {
@@ -30,8 +30,9 @@ export function fetchData() {
         dispatch(requestData());
 
         console.log(bugData);
-            const amendedData = bugData.map(function (dataRow) {
+            const amendedData = bugData.map(function (dataRow, idx) {
                 dataRow.isRendered = true;
+                dataRow._id = 'bug' + idx;
                 return dataRow;
             });
 
