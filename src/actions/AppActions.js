@@ -1,10 +1,10 @@
-import bugData from '../data.json';
+import bugData from '../bug-tracker-data.json';
 
-export const REQUEST_DATA = 'REQUEST_DATA';
-export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const FAILURE_DATA = 'FAILURE_DATA';
-
 export const FILTER_DATA = 'FILTER_DATA';
+export const RECEIVE_DATA = 'RECEIVE_DATA';
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const RESET_DATA = 'RESET_DATA';
 
 export function requestData() {
     return { type: REQUEST_DATA };
@@ -29,17 +29,20 @@ export function fetchData() {
     return (dispatch) => {
         dispatch(requestData());
 
-        console.log(bugData);
-            const amendedData = bugData.map(function (dataRow, idx) {
-                dataRow.isRendered = true;
-                dataRow._id = 'bug' + idx;
-                return dataRow;
-            });
+        const amendedData = bugData.map(function (dataRow, idx) {
+            dataRow.isRendered = true;
+            dataRow._id = 'bug' + idx;
+            return dataRow;
+        });
 
-            dispatch(receiveData(amendedData));
+        dispatch(receiveData(amendedData));
     }
 }
 
-export function filterData(filter) {
-    return { type: FILTER_DATA, filter };
+export function filterData(filters) {
+    return { type: FILTER_DATA, filters };
+}
+
+export function resetData() {
+    return {type: RESET_DATA}
 }

@@ -1,0 +1,31 @@
+.filter-panel {
+  width: 1200px;
+  background-color: lightyellow;
+  padding: 10px 0;
+
+  h3 {
+    margin: 0 10px;
+  }
+
+  input, select {
+    width: 100%;
+  }
+
+  .filter-titles li {
+    padding-bottom: 0;
+  }
+
+  .filter-fields li {
+    padding-top: 5px;
+  }
+
+
+  .filter-buttons {
+    text-align: right;
+
+    button {
+      margin-right: 10px;
+      width: 200px;
+    }
+  }
+}
