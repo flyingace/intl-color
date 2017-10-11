@@ -15,45 +15,38 @@ class FilterView extends React.Component {
     state = {};
 
     componentDidMount() {
+        this.descriptionField = document.querySelector('#description');
+        this.featureField = document.querySelector('#feature');
+        this.modifiedDateField = document.querySelector('#modified-date');
+        this.priorityField = document.querySelector('#priority');
+        this.statusField = document.querySelector('#status');
+        this.submittedByField = document.querySelector('#submitted-by');
     }
 
     componentWillUnmount() {
     }
 
     applyAllFilters = () => {
-        const descriptionField = document.querySelector('#description');
-        const featureField = document.querySelector('#feature');
-        const modifiedDateField = document.querySelector('#modified-date');
-        const priorityField = document.querySelector('#priority');
-        const statusField = document.querySelector('#status');
-        const submittedByField = document.querySelector('#submitted-by');
 
         const filterSet = {
-            "description": descriptionField.value,
-            "feature": featureField[featureField.selectedIndex].value,
-            "modifiedDate": modifiedDateField.value,
-            "priority": parseInt(priorityField[priorityField.selectedIndex].value, 10),
-            "status": statusField[statusField.selectedIndex].value,
-            "submittedBy": submittedByField[submittedByField.selectedIndex].value
+            "description": this.descriptionField.value,
+            "feature": this.featureField[this.featureField.selectedIndex].value,
+            "modifiedDate": this.modifiedDateField.value,
+            "priority": parseInt(this.priorityField[this.priorityField.selectedIndex].value, 10),
+            "status": this.statusField[this.statusField.selectedIndex].value,
+            "submittedBy": this.submittedByField[this.submittedByField.selectedIndex].value
         };
 
         this.props.filterData(filterSet);
     };
 
     clearAllFilters = () => {
-        const descriptionField = document.querySelector('#description');
-        const featureField = document.querySelector('#feature');
-        const modifiedDateField = document.querySelector('#modified-date');
-        const priorityField = document.querySelector('#priority');
-        const statusField = document.querySelector('#status');
-        const submittedByField = document.querySelector('#submitted-by');
-
-        descriptionField.value = '';
-        featureField.selectedIndex = 0;
-        modifiedDateField.value = '';
-        priorityField.selectedIndex = 0;
-        statusField.selectedIndex = 0;
-        submittedByField.selectedIndex = 0;
+        this.descriptionField.value = '';
+        this.featureField.selectedIndex = 0;
+        this.modifiedDateField.value = '';
+        this.priorityField.selectedIndex = 0;
+        this.statusField.selectedIndex = 0;
+        this.submittedByField.selectedIndex = 0;
 
         this.props.resetData();
     };
@@ -119,7 +112,7 @@ class FilterView extends React.Component {
                         <select name="status" id="status">
                             <option value="">Select</option>
                             <option value="NOT_STARTED">Not Started</option>
-                            <option value="IN_PROGRES">In Progress</option>
+                            <option value="IN_PROGRESS">In Progress</option>
                             <option value="COMPLETE">Complete</option>
                         </select>
                     </li>
