@@ -37,7 +37,8 @@ class FilterView extends React.Component {
             "submittedBy": this.submittedByField[this.submittedByField.selectedIndex].value
         };
 
-        this.props.filterData(filterSet);
+        this.props.updateFilters(filterSet);
+        this.props.filterData();
     };
 
     clearAllFilters = () => {
@@ -69,7 +70,7 @@ class FilterView extends React.Component {
                         Priority
                     </li>
                     <li className="column-five">
-                        Submittor
+                        Submitted By
                     </li>
                     <li className="column-six">
                         Status

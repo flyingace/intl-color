@@ -1,0 +1,25 @@
+.plain-text {
+  cursor: pointer;
+}
+
+.editable-text {
+  text-align: right;
+
+  .textfield {
+    width: 98%;
+    padding: 1%;
+    font-size: 14px;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    resize: none;
+    overflow-y: auto;
+  }
+
+  .button-yes, .button-no {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}
+
+.hidden {
+  display: none;
+}
