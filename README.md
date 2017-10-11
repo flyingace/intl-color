@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+There is a near-complete version of this application which can be viewed [here](https://flyingace.github.io/intl-color/). I making two of the data fields editable and then this should be complete. I will update this README and all files once that is done.
+
 Notes:
 1. I have substituted a json file with more rows but with exactly the same data structure so that I could more easily
  test multiple filtering combinations. The only change that I've made is that where in the provided json file the 
