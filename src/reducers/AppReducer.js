@@ -1,17 +1,25 @@
 import moment from 'moment';
 import {
-    FAILURE_DATA, FILTER_DATA, RECEIVE_DATA, REQUEST_DATA, RESET_DATA
+    FAILURE_DATA, FILTER_DATA, RECEIVE_DATA, REQUEST_DATA, RESET_DATA, UPDATE_DATA, UPDATE_FILTERS
 } from '../actions/AppActions';
 import { assign, isEmpty, isNaN } from 'lodash';
 
 const initialState = {
     bugData: [],
     filteredBugData: [],
-    activeFilters: {}
+    activeFilters: {
+        "description": '',
+        "feature": '',
+        "modifiedDate": '',
+        "priority": NaN,
+        "status": '',
+        "submittedBy": ''
+    }
 };
 
-function filterByCriteria(state, filterSet) {
+function filterByCriteria(state) {
     const bugs = state.bugData;
+    const filterSet = state.activeFilters;
 
     return bugs.filter(function (bug) {
 
@@ -64,33 +72,62 @@ function filterByStatus(row, value) {
     return row.status === value;
 }
 
+function updateBugData(state, newData) {
+    const stateCopy = assign({}, state);
+    const rowToUpdate = stateCopy.bugData.findIndex((row) => {
+        return row._id === newData.rowId;
+    });
+    stateCopy.bugData[rowToUpdate][newData.field] = newData.newValue;
+
+    return stateCopy;
+}
+
 export default function AppReducer(state = initialState, action) {
+    let newState = [];
+
     switch (action.type) {
     case FAILURE_DATA:
+        return state;
         break;
     case FILTER_DATA:
-        const filteredData = filterByCriteria(state, action.filters);
+        const filteredData = filterByCriteria(state);
 
-        state = assign({}, state, {
+        newState = assign({}, state, {
             filteredBugData: filteredData
         });
         break;
     case RECEIVE_DATA:
-        state = assign({}, state, {
+        newState = assign({}, state, {
             bugData: action.state,
             filteredBugData: action.state
         });
         break;
     case RESET_DATA:
-        state = assign({}, state, {
+        newState = assign({}, state, {
+            activeFilters: {},
             filteredBugData: state.bugData
         });
         break;
     case REQUEST_DATA:
+        return state;
+        break;
+    case UPDATE_DATA:
+        const updatedState = updateBugData(state, action.newData);
+        const filteredUpdatedData = filterByCriteria(updatedState);
+
+        newState = assign({}, state, {
+            bugData: updatedState.bugData,
+            filteredBugData: filteredUpdatedData
+        });
+        break;
+    case UPDATE_FILTERS:
+        newState = assign({}, state, {
+            activeFilters: action.filters
+        });
         break;
     default:
         return state;
     }
 
-    return state;
+    return newState;
 }

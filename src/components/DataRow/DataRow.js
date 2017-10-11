@@ -32,34 +32,37 @@ class DataRow extends React.Component {
     render() {
 
         return (
-        <li>
-            <ul className="data-row">
-                {/*DescriptionFieldEditable*/}
-                <li className="column-one">
-                    <DescriptionField description={this.props.description}/>
-                </li>
-                {/*FeaturesField*/}
-                <li className="column-two">
-                    {this.props.feature}
-                </li>
-                {/*LastModifiedData*/}
-                <li className="column-three">
-                    {this.formatDate(this.props.modifiedDate)}
-                </li>
-                {/*PriorityFieldEditable*/}
-                <li className="column-four">
-                    <EditableMenuField name={"Priority"} value={this.props.priority} options={PRIORITY} />
-                </li>
-                {/*SubmittedByField*/}
-                <li className="column-five">
-                    {this.props.submittedBy}
-                </li>
-                {/*StatusFieldEditable*/}
-                <li className="column-six">
-                    <EditableMenuField name={"Status"} value={this.props.status} options={STATUS} />
-                </li>
-            </ul>
-        </li>
+            <li>
+                <ul className="data-row">
+                    {/*DescriptionFieldEditable*/}
+                    <li className="column-one">
+                        <DescriptionField description={this.props.description} rowId={this.props._id}
+                                          updateData={this.props.updateFunction}/>
+                    </li>
+                    {/*FeaturesField*/}
+                    <li className="column-two">
+                        {this.props.feature}
+                    </li>
+                    {/*LastModifiedData*/}
+                    <li className="column-three">
+                        {this.formatDate(this.props.modifiedDate)}
+                    </li>
+                    {/*PriorityFieldEditable*/}
+                    <li className="column-four">
+                        <EditableMenuField name={"Priority"} value={this.props.priority} options={PRIORITY}
+                                           rowId={this.props._id}/>
+                    </li>
+                    {/*SubmittedByField*/}
+                    <li className="column-five">
+                        {this.props.submittedBy}
+                    </li>
+                    {/*StatusFieldEditable*/}
+                    <li className="column-six">
+                        <EditableMenuField name={"Status"} value={this.props.status} options={STATUS}
+                                           rowId={this.props._id}/>
+                    </li>
+                </ul>
+            </li>
         );
     }
 }

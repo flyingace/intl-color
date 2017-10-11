@@ -5,6 +5,8 @@ export const FILTER_DATA = 'FILTER_DATA';
 export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const REQUEST_DATA = 'REQUEST_DATA';
 export const RESET_DATA = 'RESET_DATA';
+export const UPDATE_DATA = 'UPDATE_DATA';
+export const UPDATE_FILTERS = 'UPDATE_FILTERS';
 
 export function requestData() {
     return { type: REQUEST_DATA };
@@ -40,9 +42,17 @@ export function fetchData() {
 }
 
 export function filterData(filters) {
-    return { type: FILTER_DATA, filters };
+    return { type: FILTER_DATA };
 }
 
 export function resetData() {
     return {type: RESET_DATA}
+}
+
+export function updateData(newData) {
+    return {type: UPDATE_DATA, newData}
+}
+
+export function updateFilters(filters) {
+    return {type: UPDATE_FILTERS, filters}
 }

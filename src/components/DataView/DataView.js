@@ -22,7 +22,7 @@ class DataView extends React.Component {
         const bugData = this.props.filteredBugData;
 
         const dataRows = bugData.map((dataForRow) => {
-                return (<DataRow {...dataForRow} key={dataForRow._id}/>);
+                return (<DataRow {...dataForRow} key={dataForRow._id} updateFunction={this.props.updateData}/>);
             }
         );
 
