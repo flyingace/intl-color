@@ -49,8 +49,8 @@ class DataRow extends React.Component {
                     </li>
                     {/*PriorityFieldEditable*/}
                     <li className="column-four">
-                        <EditableMenuField name={"Priority"} value={this.props.priority} options={PRIORITY}
-                                           rowId={this.props._id}/>
+                        <EditableMenuField name={"priority"} value={this.props.priority} options={PRIORITY}
+                                           rowId={this.props._id} updateData={this.props.updateFunction}/>
                     </li>
                     {/*SubmittedByField*/}
                     <li className="column-five">
@@ -58,8 +58,8 @@ class DataRow extends React.Component {
                     </li>
                     {/*StatusFieldEditable*/}
                     <li className="column-six">
-                        <EditableMenuField name={"Status"} value={this.props.status} options={STATUS}
-                                           rowId={this.props._id}/>
+                        <EditableMenuField name={"status"} value={this.props.status} options={STATUS}
+                                           rowId={this.props._id} updateData={this.props.updateFunction}/>
                     </li>
                 </ul>
             </li>

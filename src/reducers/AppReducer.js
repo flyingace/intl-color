@@ -77,7 +77,8 @@ function updateBugData(state, newData) {
     const rowToUpdate = stateCopy.bugData.findIndex((row) => {
         return row._id === newData.rowId;
     });
-    stateCopy.bugData[rowToUpdate][newData.field] = newData.newValue;
+    stateCopy.bugData[rowToUpdate][newData.field] =
+        (newData.field === 'priority') ? parseInt(newData.newValue, 10) : newData.value;
 
     return stateCopy;
 }

@@ -1,0 +1,23 @@
+.plain-text {
+  cursor: pointer;
+}
+
+.editable-menu {
+  text-align: right;
+
+  .selectMenu {
+    width: 100%;
+    font-size: 14px;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    margin-bottom: 2px;
+  }
+
+  .button-yes, .button-no {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}
+
+.hidden {
+  display: none;
+}
