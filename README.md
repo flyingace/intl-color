@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-There is a near-complete version of this application which can be viewed [here](https://flyingace.github.io/intl-color/). I making two of the data fields editable and then this should be complete. I will update this README and all files once that is done.
+This application can be viewed [here](https://flyingace.github.io/intl-color/). I believe that I have fulfilled all requirements of the challenge and I have also fixed any bugs I have come across. If further bugs are found please email me or open an issue in the tab above.
 
 Notes:
 1. I have substituted a json file with more rows but with exactly the same data structure so that I could more easily
