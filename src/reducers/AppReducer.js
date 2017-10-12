@@ -78,7 +78,7 @@ function updateBugData(state, newData) {
         return row._id === newData.rowId;
     });
     stateCopy.bugData[rowToUpdate][newData.field] =
-        (newData.field === 'priority') ? parseInt(newData.newValue, 10) : newData.value;
+        (newData.field === 'priority') ? parseInt(newData.newValue, 10) : newData.newValue;
 
     return stateCopy;
 }
